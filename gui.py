@@ -4,7 +4,7 @@ import sys
 import pyglet
 # from pyglet import gl # NOTE: This doesn't work
 import OpenGL.GL as gl # NOTE: This works
-from .testwindow import show_test_window
+import testwindow
 import imgui
 # Note that we could explicitly choose to use PygletFixedPipelineRenderer
 # or PygletProgrammablePipelineRenderer, but create_renderer handles the
@@ -54,7 +54,7 @@ def update(dt):
                 "Quit", "Esc", False, True
             )
             if clicked_quit:
-                exit(1)
+                exit(0)
             imgui.end_menu()
         # End rendering the menu bar
         imgui.end_main_menu_bar()
@@ -63,15 +63,15 @@ def update(dt):
     ### MENU BAR END ###
     
     # Show a basic test window, if you want
-    # show_test_window()
+    # testwindow.show_test_window()
 
     # TODO: Do any imgui stuff you want here. Here's a simple example...
-    # imgui.begin("My Cool Sub-Window", True) # start rendering a sub-window
-    # imgui.set_window_size(window_width / 2, window_height) # take up half the screen
-    # imgui.text("Here's some awesome text!") # render some text
-    # if imgui.button("Click Me!"): # buttons are rendered and checked for clicks in one line!
-    #     imgui.text("Button clicked!")
-    # imgui.end() # end the sub-window
+    imgui.begin("My Cool Sub-Window", True) # start rendering a sub-window
+    imgui.set_window_size(window_width / 2, window_height) # take up half the screen
+    imgui.text("Here's some awesome text!") # render some text
+    if imgui.button("Click Me!"): # buttons are rendered and checked for clicks in one line!
+        imgui.text("Button clicked!")
+    imgui.end() # end the sub-window
     
     # Clear the OpenGL buffer for the background color.
     gl.glClearColor(1, 1, 1, 1)

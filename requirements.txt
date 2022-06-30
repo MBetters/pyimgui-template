@@ -1,0 +1,11 @@
+cocos2d==0.6.9
+Cython==0.29.30
+glfw==2.5.3
+imgui==1.4.1
+numpy==1.23.0
+pygame==2.1.2
+pyglet==1.5.26
+PyOpenGL==3.1.6
+PySDL2==0.9.11
+pywin32==304
+six==1.16.0
